@@ -51,6 +51,7 @@ _Examplar& _Examplar:: operator= (const _Examplar& rhs){  // 重载=运算符
 		dom_elt = rhs.dom_elt;
 		dom_dims = rhs.dom_dims;
 	}
+	return *this;
 }
 void _Examplar::create(int dims)    //创建数据向量
 {

@@ -38,8 +38,5 @@
     <ClInclude Include="KDTreeNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="HyperRectangle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
