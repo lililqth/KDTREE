@@ -13,6 +13,7 @@ public:
 	KDTreeNode(){};
 	KDTreeNode(ExamplarSet* set, KDTreeNode* father)
 	{
+		this->visited = false;
 		this->dataSet = set;
 		this->father = father;
 	}

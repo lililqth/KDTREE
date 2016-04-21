@@ -3,6 +3,7 @@
 #include "Examplar.h"
 #include "ExamplarSet.h"
 #include "KDTree.h"
+#include "Search.h"
 using namespace std;
 ExamplarSet* expSet;
 
@@ -56,7 +57,23 @@ int main(){
 	int num = expSet->readData("data.txt");
 	expSet->sortByVariance();
 	KDTreeNode *root = new KDTreeNode(expSet, NULL);
-	devide(NULL, root, expSet, 0, expSet->getSize());
+	// 建树
+	devide(NULL, root, expSet, 0, expSet->varianceVec.size());
+	 //搜索的目标点
+	_Examplar* target = new _Examplar();
+	double a, b;
+	cin >> a >> b;
+	vector<double> temp;
+	temp.push_back(a);
+	temp.push_back(b);
+	target->dom_dims = 2;
+	target->dom_elt = temp;
+	// 搜索
+	Search* search = new Search();
+	search->setTotalDim(expSet->varianceVec.size());
+	search->setTarget(*target);
+	_Examplar* ans = search->Find(root);
+	cout << ans->dom_elt[0] << ", " << ans->dom_elt[1] << endl;
 	system("pause");
 	return 0;
 }
